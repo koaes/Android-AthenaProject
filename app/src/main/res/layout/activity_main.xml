@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/parents"
+            android:scaleType="fitXY"/>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Pick One"
+        android:textColor="@android:color/black"
+        android:fontFamily="cursive"
+        android:layout_margin="8dp"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/main_animal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/main_animal"
+        android:scaleType="fitXY"
+        android:onClick="openAnimal"/>
+
+    <ImageView
+        android:id="@+id/main_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/main_color"
+        android:scaleType="fitXY"
+        android:onClick="openColor"/>
+
+    <ImageView
+        android:id="@+id/main_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/main_verbs"
+        android:scaleType="fitXY"
+        android:onClick="openAction"/>
+
+
+</LinearLayout>

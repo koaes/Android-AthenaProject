@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        tools:context="com.udacity.myapplication.MainActivity">
+
+        <ImageView
+            android:id="@+id/verb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/paint"
+            android:onClick="quack"/>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/word_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="32sp"
+        android:fontFamily="serif"
+        android:textStyle="bold|italic"
+        android:textColor="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16sp"
+        android:paddingBottom="16sp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_weight="2"
+            android:src="@drawable/left"
+            android:onClick="left"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_weight="1.7"
+            android:src="@drawable/mommy"
+            android:onClick="mommy"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_weight="1.8"
+            android:src="@drawable/daddy"
+            android:onClick="daddy"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_weight="2"
+            android:src="@drawable/right"
+            android:onClick="right"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
