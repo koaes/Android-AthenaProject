@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class AnimalActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
-    MediaPlayer mediaPlayerbackground;
+    //MediaPlayer mediaPlayerbackground;
 
     int quantity = 2;
     int[] pics = {R.drawable.dog, R.drawable.duck, R.drawable.horse, R.drawable.rooster, R.drawable.fish, R.drawable.cow};
@@ -28,38 +28,37 @@ public class AnimalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal);
 
-        mediaPlayerbackground = (MediaPlayer)getLastNonConfigurationInstance();
+        BackgroundMusic.resumeMusic();
 
-        if (mediaPlayerbackground == null){
-            mediaPlayerbackground = MediaPlayer.create(this,R.raw.music);
-            mediaPlayerbackground.start();
-        }
+        //mediaPlayerbackground = (MediaPlayer)getLastNonConfigurationInstance();
 
-        mediaPlayer = MediaPlayer.create(this,R.raw.quack);
+        //if (mediaPlayerbackground == null){
+            //mediaPlayerbackground = MediaPlayer.create(this,R.raw.music);
+            //mediaPlayerbackground.start();
+       // }
+
+        //mediaPlayer = MediaPlayer.create(this,R.raw.quack);
 
 
 
     }
 
-     @Override
+    @Override
     protected void onPause(){
-        if (mediaPlayerbackground.isPlaying()){
-            mediaPlayerbackground.pause();
-
-        }
+        BackgroundMusic.pauseMusic();
         super.onPause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mediaPlayerbackground.start();
+        BackgroundMusic.resumeMusic();
     }
 
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        mediaPlayerbackground.release();
+        BackgroundMusic.destroymusic();
     }
 
 // ======================================
