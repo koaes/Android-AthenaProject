@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/top"
         android:layout_gravity="center"
         android:orientation="horizontal">
 
@@ -23,39 +27,71 @@
 
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top"
         android:layout_gravity="center"
-        android:text="Pick One"
-        android:textColor="@android:color/black"
-        android:fontFamily="cursive"
-        android:layout_margin="8dp"
-        android:textSize="24sp" />
-
-    <ImageView
-        android:id="@+id/main_animal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/main_animal"
-        android:scaleType="fitXY"
-        android:onClick="openAnimal"/>
-
-    <ImageView
-        android:id="@+id/main_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/main_color"
-        android:scaleType="fitXY"
-        android:onClick="openColor"/>
-
-    <ImageView
-        android:id="@+id/main_action"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/main_verbs"
-        android:scaleType="fitXY"
-        android:onClick="openAction"/>
+        android:orientation="vertical">
 
 
-</LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Pick One"
+            android:textColor="@android:color/black"
+            android:fontFamily="cursive"
+            android:layout_margin="8dp"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/main_animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_animal"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:onClick="openAnimal"/>
+
+        <ImageView
+            android:id="@+id/main_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_color"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:onClick="openColor"/>
+
+        <ImageView
+            android:id="@+id/main_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_verbs"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:onClick="openAction"/>
+
+        <ImageView
+            android:id="@+id/main_shapes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_shapes"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:onClick="openShapes"/>
+
+        <ImageView
+            android:id="@+id/main_numbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_numbers"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:onClick="openNumbers"/>
+
+        </LinearLayout>
+
+</RelativeLayout>
+</ScrollView>
