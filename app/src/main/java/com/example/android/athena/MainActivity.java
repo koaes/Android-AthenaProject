@@ -46,23 +46,17 @@ public class MainActivity extends AppCompatActivity {
     public void openAnimal (View view){
 
         Intent i = new Intent(this, AnimalActivity.class);
-
         startActivity(i);
-
     }
 
     public void openColor (View view){
-
         Intent i = new Intent(this, ColorActivity.class);
         startActivity(i);
-
     }
 
     public void openAction (View view){
-
         Intent i = new Intent(this, VerbActivity.class);
         startActivity(i);
-
     }
 
 

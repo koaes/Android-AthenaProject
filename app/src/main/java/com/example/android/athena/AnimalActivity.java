@@ -67,7 +67,6 @@ public class AnimalActivity extends AppCompatActivity {
 
         display(german_words[i], Color.MAGENTA);
 
-
         tracks[0] = R.raw.hund;
         tracks[1] = R.raw.ente;
         tracks[2] = R.raw.pferd;
