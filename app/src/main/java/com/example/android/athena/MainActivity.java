@@ -1,26 +1,23 @@
 package com.example.android.athena;
 
 import android.content.Intent;
-import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.media.MediaPlayer;
-import android.widget.Toast;
 import android.support.v7.app.AppCompatActivity;
+import android.media.SoundPool.OnLoadCompleteListener;
+
 
 public class MainActivity extends AppCompatActivity {
-    MediaPlayer mediaPlayer;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //BackgroundMusic.play(this);
     }
 
     @Override
@@ -28,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Music Update", "On Pause from Main");
         //BackgroundMusic.pauseMusic();
         super.onPause();
+        //mySoundPool.release();
+        //mySoundPool = null;
 
     }
 
@@ -59,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void openNumbers (View view){
+        Intent i = new Intent(this, NumbersActivity.class);
+        startActivity(i);
+    }
 
 }
 

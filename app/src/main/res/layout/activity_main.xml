@@ -74,15 +74,6 @@
             android:onClick="openAction"/>
 
         <ImageView
-            android:id="@+id/main_shapes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/main_shapes"
-            android:layout_gravity="center"
-            android:scaleType="fitXY"
-            android:onClick="openShapes"/>
-
-        <ImageView
             android:id="@+id/main_numbers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
