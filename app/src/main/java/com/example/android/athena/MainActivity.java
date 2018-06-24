@@ -10,23 +10,28 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.media.SoundPool.OnLoadCompleteListener;
 
+import static com.example.android.athena.BackgroundMusicService.backgroundmediaPlayer;
+
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        startService(new Intent(this,BackgroundMusicService.class));
+
     }
 
     @Override
     protected void onPause(){
         Log.i("Music Update", "On Pause from Main");
-        //BackgroundMusic.pauseMusic();
+        if(backgroundmediaPlayer!=null){
+            backgroundmediaPlayer.pause();}
         super.onPause();
-        //mySoundPool.release();
-        //mySoundPool = null;
+
 
     }
 
@@ -34,12 +39,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //BackgroundMusic.resumeMusic();
+        if(backgroundmediaPlayer!=null){
+            backgroundmediaPlayer.start();}
+
     }
 
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        //BackgroundMusic.destroymusic();
+        stopService(new Intent(this,BackgroundMusicService.class));
+
     }
 
     public void openAnimal (View view){
