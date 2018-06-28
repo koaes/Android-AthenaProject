@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import static com.example.android.athena.BackgroundMusicService.backgroundmediaPlayer;
 
 public class NumbersActivity extends AppCompatActivity {
@@ -19,52 +21,63 @@ public class NumbersActivity extends AppCompatActivity {
     String[] words = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"};
     String[] german_words = {"Einz", "Zwei", "Drei", "Vier", "Funf", "Sechs", "Seben", "Acht", "Neun", "Zain"};
     int i = 0;
-    int[] tracks = new int[20];
+    ArrayList<Integer> englishTrack = new ArrayList<Integer>();
+    ArrayList<Integer> germanTrack = new ArrayList<Integer>();
     int MAX_NUMBER_STREAMS = 10;
-    SoundPool mySoundPool;
+    SoundPool englishSoundPool;
+    SoundPool germanSoundPool;
     boolean loaded = false;
-    int sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        mySoundPool = new SoundPool(MAX_NUMBER_STREAMS, AudioManager.STREAM_MUSIC, 0);
-
-        mySoundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+        englishSoundPool = new SoundPool(MAX_NUMBER_STREAMS, AudioManager.STREAM_MUSIC, 0);
+        englishSoundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
             @Override
             public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
                 loaded = true;
             }
         });
 
-        tracks[0] = R.raw.numbers_einz;
-        tracks[1] = R.raw.numbers_zwei;
-        tracks[2] = R.raw.numbers_drei;
-        tracks[3] = R.raw.numbers_vier;
-        tracks[4] = R.raw.numbers_funf;
-        tracks[5] = R.raw.numbers_sechs;
-        tracks[6] = R.raw.numbers_seben;
-        tracks[7] = R.raw.numbers_acht;
-        tracks[8] = R.raw.numbers_neun;
-        tracks[9] = R.raw.numbers_zain;
-        tracks[10] = R.raw.numbers_one;
-        tracks[11] = R.raw.numbers_two;
-        tracks[12] = R.raw.numbers_three;
-        tracks[13] = R.raw.numbers_four;
-        tracks[14] = R.raw.numbers_five;
-        tracks[15] = R.raw.numbers_six;
-        tracks[16] = R.raw.numbers_seven;
-        tracks[17] = R.raw.numbers_eight;
-        tracks[18] = R.raw.numbers_nine;
-        tracks[19] = R.raw.numbers_ten;
+        germanSoundPool = new SoundPool(MAX_NUMBER_STREAMS, AudioManager.STREAM_MUSIC, 0);
+        germanSoundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                loaded = true;
+            }
+        });
 
-        for(int i=0;i<20;i++) {
-            sound = mySoundPool.load(this, tracks[i], 1);
-            Log.v("Sounds", Integer.toString(sound));
+        germanTrack.add(R.raw.numbers_einz);
+        germanTrack.add(R.raw.numbers_zwei);
+        germanTrack.add(R.raw.numbers_drei);
+        germanTrack.add(R.raw.numbers_vier);
+        germanTrack.add(R.raw.numbers_funf);
+        germanTrack.add(R.raw.numbers_sechs);
+        germanTrack.add(R.raw.numbers_seben);
+        germanTrack.add(R.raw.numbers_acht);
+        germanTrack.add(R.raw.numbers_neun);
+        germanTrack.add(R.raw.numbers_zain);
+
+        englishTrack.add(R.raw.numbers_one);
+        englishTrack.add(R.raw.numbers_two);
+        englishTrack.add(R.raw.numbers_three);
+        englishTrack.add(R.raw.numbers_four);
+        englishTrack.add(R.raw.numbers_five);
+        englishTrack.add(R.raw.numbers_six);
+        englishTrack.add(R.raw.numbers_seven);
+        englishTrack.add(R.raw.numbers_eight);
+        englishTrack.add(R.raw.numbers_nine);
+        englishTrack.add(R.raw.numbers_ten);
+
+        for(int i=0;i<englishTrack.size();i++) {
+            englishSoundPool.load(this, englishTrack.get(i), 1);
+         }
+
+        for(int i=0;i<germanTrack.size();i++) {
+            germanSoundPool.load(this, germanTrack.get(i), 1);
         }
-
     }
 
 
@@ -74,8 +87,6 @@ public class NumbersActivity extends AppCompatActivity {
         if(backgroundmediaPlayer!=null){
             backgroundmediaPlayer.pause();}
         super.onPause();
-
-
     }
 
     @Override
@@ -84,19 +95,18 @@ public class NumbersActivity extends AppCompatActivity {
         //BackgroundMusic.resumeMusic();
         if(backgroundmediaPlayer!=null){
             backgroundmediaPlayer.start();}
-
     }
 
     public void mommy(View view){
 
         display(german_words[i], Color.MAGENTA);
-        mySoundPool.play(i+1,1.0F, 1.0F,0,0,1.0F);
+        germanSoundPool.play(i+1,1.5F, 1.5F,0,0,1.0F);
     }
 
     public void daddy(View view){
 
         display(words[i], Color.parseColor("#29b6f6"));
-        mySoundPool.play(i+11,1.0F, 1.0F,0,0,1.0F);
+        englishSoundPool.play(i+1,1.5F, 1.5F,0,0,1.0F);
     }
 
     public void left(View view){
@@ -110,7 +120,7 @@ public class NumbersActivity extends AppCompatActivity {
 
     public void right(View view){
         ImageView image = (ImageView) findViewById(R.id.number);
-        if(i < 9) {
+        if(i < englishTrack.size()-1) {
             i = i + 1;
             image.setImageResource(pics[i]);
             Log.v("Numbers", Integer.toString(i));

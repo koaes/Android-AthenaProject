@@ -19,6 +19,7 @@ public class BackgroundMusicService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         backgroundmediaPlayer = MediaPlayer.create(this, R.raw.music);
+        backgroundmediaPlayer.setVolume(0.5f, 0.5f);
         backgroundmediaPlayer.start();
         return START_STICKY;
     }
